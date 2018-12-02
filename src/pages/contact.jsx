@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import Layout from '../components/layout'
 import Loader from '../components/common/loader'
+import ConstructImage from '../components/ConstructImage'
 
 export default class ConstructionPage extends PureComponent {
   constructor() {
@@ -21,6 +22,17 @@ export default class ConstructionPage extends PureComponent {
   render() {
     const { todo, isLoaded } = this.state
 
-    return <Layout>{!isLoaded ? <Loader /> : <h2>{todo.title}</h2>}</Layout>
+    return (
+      <Layout>
+        {!isLoaded ? (
+          <Loader />
+        ) : (
+          <>
+            <h2>{todo.title}</h2>
+            <ConstructImage />
+          </>
+        )}
+      </Layout>
+    )
   }
 }
