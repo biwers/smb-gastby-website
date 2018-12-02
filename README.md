@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://smbgroup-iq.com">
-    <img alt="SMB group iraq" src="http://smbgroup-iq.com/assets/img/smb-logo.png" width="60" />
+    <img alt="SMB Group Iraq" src="http://smbgroup-iq.com/assets/img/smb-logo.png" width="60" />
   </a>
 </p>
 <h1 align="center">
-  SMB Group iraq - gatsbyjs website
+  SMB Group Iraq - Gatsbyjs website
 </h1>
 
 ## 🚀 Quick start
