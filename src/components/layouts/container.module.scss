@@ -1,0 +1,14 @@
+.container {
+  max-width: 1280px;
+  width: 100%;
+  width: calc(100% - 2rem);
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: 1024px) {
+    width: calc(100% - 4rem);
+  }
+}
+
+.row {
+  color: red;
+}
