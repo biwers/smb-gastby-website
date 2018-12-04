@@ -1,17 +1,29 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
+import Header from '../components/header'
+import Container from '../components/layouts/container'
 import Layout from '../components/layout'
-import Image from '../components/image'
+import MissionIcon from '../components/icons/mission'
+import CenterBlock from '../components/common/centerBlock'
 
 const IndexPage = () => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
-    </div>
+    <Header />
+    <main
+      className="main-content"
+      style={{
+        paddingTop: '2rem',
+        paddingBottom: '2rem',
+      }}
+    >
+      <Container>
+        <h2 style={{ textAlign: 'center', fontWeight: 100, color: 'darkblue' }}>
+          Helping you do business throughout Iraq & GCC
+        </h2>
+        <CenterBlock>
+          <MissionIcon />
+        </CenterBlock>
+      </Container>
+    </main>
   </Layout>
 )
 

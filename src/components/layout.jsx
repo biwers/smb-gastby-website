@@ -2,15 +2,69 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import Container, { Row } from './layouts/container'
+import Container from './layouts/container'
 import Navbar from './nav'
-import Header from './header'
+
 import './layout.scss'
 
 const description =
     'SMB is a privately owned commercial service company based in Kurdistan, Iraq. We are specialists in the delivery of consultancy and bespoke, custom-built service solutions. Our key objectives as an organisation is customer and employee satisfaction.',
   keywords =
-    'Smb Group, smb, iraq, smb iraq, kurdistan, company,construction, oil, gas, oil & gas, support, life support, food,equipment, security,construct'
+    'Smb Group, smb, iraq, smb iraq, kurdistan, company,construction, oil, gas, oil & gas, support, life support, food,equipment, security,construct',
+  menuItems = [
+    {
+      title: 'Home',
+      to: '/',
+      hasDropdown: false,
+    },
+    {
+      title: 'Services',
+      to: '/#',
+      hasDropdown: true,
+      dropdownMenu: [
+        {
+          title: 'Construction',
+          to: '/services/construction',
+        },
+        {
+          title: 'Logistics',
+          to: '/services/logistics',
+        },
+        {
+          title: 'Oil & Gas',
+          to: '/services/oilgas',
+        },
+        {
+          title: 'Equipment',
+          to: '/services/equipment',
+        },
+        {
+          title: 'Life support and Services',
+          to: '/services/lifesupport',
+        },
+      ],
+    },
+    {
+      title: 'HSE',
+      to: '/hse',
+      hasDropdown: false,
+    },
+    {
+      title: 'Careers',
+      to: '/careers',
+      hasDropdown: false,
+    },
+    {
+      title: 'About',
+      to: '/about',
+      hasDropdown: false,
+    },
+    {
+      title: 'Contact',
+      to: '/contact',
+      hasDropdown: false,
+    },
+  ]
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -33,15 +87,11 @@ const Layout = ({ children }) => (
           ]}
         >
           <html lang="en" className="no-js" />
-          <p>ssds</p>
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <Container>
-          <Row>
-            <Navbar />
-          </Row>
-          {children}
-        </Container>
+
+        <Navbar menuItems={menuItems} />
+
+        {children}
       </>
     )}
   />

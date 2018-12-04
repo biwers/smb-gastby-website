@@ -1,0 +1,27 @@
+.icon {
+  display: inline-block;
+  > img,
+  svg {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+  }
+}
+.icon-xs {
+  max-width: 18px;
+  width: 100%;
+}
+.icon-s {
+  max-width: 24px;
+  width: 100%;
+}
+
+.icon-m {
+  max-width: 32px;
+  width: 100%;
+}
+
+.icon-l {
+  max-width: 56px;
+  width: 100%;
+}
