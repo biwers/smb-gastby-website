@@ -1,0 +1,63 @@
+.footer {
+  color: #f0f0f0;
+  background: #333;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.col {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  > h2 {
+    margin-bottom: 0.9rem;
+  }
+  @media screen and (min-width: 769px) {
+    float: left;
+    width: 30%;
+  }
+}
+
+@supports (display: flex) {
+  .flexGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .col {
+    flex: 1 1 auto;
+  }
+}
+
+.divider {
+  height: 1px;
+  margin-top: 0.1rem;
+  margin-bottom: 1rem;
+}
+
+.serviceList {
+  list-style-type: none;
+  margin: 0;
+  > li {
+    margin-bottom: 0.4rem;
+  }
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+  a:hover {
+    color: red;
+  }
+  a:visited {
+    color: purple;
+  }
+}
+.socialMediaIconList {
+  list-style-type: none;
+  margin: 0;
+  > li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+}

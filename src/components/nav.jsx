@@ -74,14 +74,14 @@ class Navbar extends Component {
               <div className="main-navbar__nav-item">
                 <a href="mailto:info@smbgroup-iq.com">
                   <Icon size="xs">
-                    <img src={EmailSvgIcon} />
+                    <img src={EmailSvgIcon} alt="" />
                   </Icon>
                   info@smbgroup-iq.com
                 </a>
               </div>
               <div className="main-navbar__nav-item">
                 <Icon size="xs">
-                  <img src={PhoneSvgIcon} />
+                  <img src={PhoneSvgIcon} alt="" />
                 </Icon>
                 +964-751 4104314
               </div>

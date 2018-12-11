@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import Container from './layouts/container'
 import Navbar from './nav'
-
+import Footer from './layouts/footer'
 import './layout.scss'
 
 const description =
@@ -46,7 +45,7 @@ const description =
     },
     {
       title: 'HSE',
-      to: '/hse',
+      to: 'services/hse',
       hasDropdown: false,
     },
     {
@@ -92,6 +91,7 @@ const Layout = ({ children }) => (
         <Navbar menuItems={menuItems} />
 
         {children}
+        <Footer/>
       </>
     )}
   />

@@ -1,0 +1,22 @@
+.services {
+  @media screen and (min-width: 478px) {
+    @supports (display: flex) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: space-between;
+      > article {
+        flex: 1 1 50%;
+      }
+    }
+  }
+
+  &::after {
+    content: ' ';
+    display: block;
+    height: 0;
+    clear: both;
+  }
+  zoom: 1;
+}
