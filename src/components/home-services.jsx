@@ -7,7 +7,7 @@ const Services = props => (
     <Card
       title="Construction"
       img="http://smbgroup-iq.com/assets/img/construction.png"
-      to="/services/contruction"
+      to="/services/construction"
       body={
         <p>
           <strong>SMB</strong> Group (SMB) has been a recognized and trusted
@@ -20,7 +20,7 @@ const Services = props => (
     <Card
       title="Oil & Gas"
       img="http://smbgroup-iq.com/assets/img/oil-gas.jpg"
-      to="/services/contruction"
+      to="/services/oilgas"
       body={
         <p>
           <strong>SMB</strong>
@@ -33,7 +33,7 @@ const Services = props => (
     <Card
       title="Equipment"
       img="http://smbgroup-iq.com/assets/img/equipment.jpeg"
-      to="/services/contruction"
+      to="/services/equipment"
       body={
         <p>
           <strong>SMB</strong> are one of Kurdistan’s largest and most diverse
@@ -46,7 +46,7 @@ const Services = props => (
     <Card
       title="Logistics"
       img="http://smbgroup-iq.com/assets/img/logistics.jpg"
-      to="/services/contruction"
+      to="/services/logistics"
       body={
         <p>
           <strong>SMB</strong> delivers comprehensive Integrated Logistic
@@ -58,7 +58,7 @@ const Services = props => (
     <Card
       title="Life support"
       img="http://smbgroup-iq.com/assets/img/life-support.jpg"
-      to="/services/contruction"
+      to="/services/lifesupport"
       body={
         <p>
           <strong>SMB</strong> is pleased to introduce itself as a major Life
