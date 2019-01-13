@@ -11,12 +11,18 @@ export default class ConstructionPage extends PureComponent {
     this.checkInputs = this.checkInputs.bind(this)
     this.state = {
       loading: false,
-      isLoaded: false,
+      hasSuccess: false,
       name: '',
       company: '',
       email: '',
       subject: '',
       message: '',
+      errors: {
+        email: false,
+        name: false,
+        subject: false,
+        message: false,
+      },
     }
   }
   handleInput(e) {
@@ -26,22 +32,57 @@ export default class ConstructionPage extends PureComponent {
   }
   async handleSubmit(e) {
     e.preventDefault()
-    this.setState(
-      {
-        loading: true,
-      },
-      function() {
-        fetch('http://smbgroup-iq.com', {})
+
+    const hasErrors = this.checkInputs(),
+      errors = { ...this.state.errors }
+    for (let error in errors) {
+      if (!(error in hasErrors)) {
+        errors[error] = false
       }
-    )
+    }
+    if (hasErrors.length <= 0) {
+      this.setState(
+        {
+          errors,
+          loading: true,
+        },
+        () => {
+          //fetch('http://smbgroup-iq.com', {})d
+          setTimeout(() => {
+            this.setState({
+              loading: false,
+              hasSuccess: true,
+              email: '',
+              name: '',
+              message: '',
+              company: '',
+              subject: '',
+            })
+          }, 3000)
+        }
+      )
+    } else {
+      hasErrors.forEach(error => {
+        errors[error] = true
+      })
+      this.setState({
+        errors,
+      })
+    }
   }
   checkInputs() {
-    const { subject, email, name, message, loading } = this.state
+    const { subject, email, name, message, loading } = this.state,
+      hasError = []
     const errors = {
       name: name.length > 0,
       subject: subject.length > 0,
       message: message.length > 50,
+      email: email.length > 0 && /(.+)@(.+){2,}\.(.+){2,}/.test(email),
     }
+    for (let error in errors) {
+      if (!errors[error]) hasError.push(error)
+    }
+    return hasError
   }
   async componentDidMount() {}
   render() {
@@ -53,6 +94,8 @@ export default class ConstructionPage extends PureComponent {
       message,
       isLoaded,
       loading,
+      errors,
+      hasSuccess,
     } = this.state
 
     return (
@@ -83,7 +126,21 @@ export default class ConstructionPage extends PureComponent {
               box-shadow: inset 0 0 5px rgba(0,0,0,0.1)
             }
             .form-control:focus, .form-control:focus-within {
-              box-shadow: 0 0 0 3px rgba(0,0,0,0.16)
+              box-shadow: 0 0 0 3px rgba(15, 112, 148, 0.3)
+              
+            }
+            .success-sent-msg {
+              border: 1px dotted green;
+              background: #2ecc71;
+              padding: 1rem;
+              font-size: 1.5rem;
+              font-weight: 700;
+              color: #121212;
+            }
+            .error-message {
+              display: 'block';
+              color: red;
+              font-size: .8rem;
             }
             .contact-page {
               margin: -2rem -3rem;
@@ -105,6 +162,12 @@ export default class ConstructionPage extends PureComponent {
           {loading && <Loader />}
           {!loading && (
             <div className="contact-page">
+              {hasSuccess && (
+                <div className="success-sent-msg">
+                  <p>Your message was sent successfully</p>
+                </div>
+              )}
+
               <div className="form-col">
                 <form className="contact-form" onSubmit={this.handleSubmit}>
                   <div className="form-group">
@@ -120,6 +183,9 @@ export default class ConstructionPage extends PureComponent {
                       onChange={this.handleInput}
                       className="form-control"
                     />
+                    {errors.name && (
+                      <span className="error-message">Name is required</span>
+                    )}
                   </div>
                   <div className="form-group">
                     <label htmlFor="company" className="form-input-label">
@@ -149,6 +215,11 @@ export default class ConstructionPage extends PureComponent {
                       onChange={this.handleInput}
                       className="form-control"
                     />
+                    {errors.email && (
+                      <span className="error-message">
+                        Please use a valid email address
+                      </span>
+                    )}
                   </div>
                   <div className="form-group">
                     <label htmlFor="subject" className="form-input-label">
@@ -163,6 +234,11 @@ export default class ConstructionPage extends PureComponent {
                       onChange={this.handleInput}
                       className="form-control"
                     />
+                    {errors.subject && (
+                      <span className="error-message">
+                        Please provide a subject
+                      </span>
+                    )}
                   </div>
 
                   <div className="form-group">
@@ -182,6 +258,11 @@ export default class ConstructionPage extends PureComponent {
                     <span style={{ fontSize: '.8rem', color: '#999' }}>
                       At least 50 characters
                     </span>
+                    {errors.message && (
+                      <span className="error-message">
+                        Please write at least 50 characters or more
+                      </span>
+                    )}
                   </div>
                   <Button type="submit" title="Send" />
                 </form>
