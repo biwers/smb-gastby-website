@@ -2,12 +2,18 @@ import React from 'react'
 import styles from './button.module.scss'
 import { Link } from 'gatsby'
 const Button = ({ type, size, title, to }) => {
-  if (type === 'button')
-    return <button className={styles.btnAbout}>{title}</button>
+  if (type === 'a') {
+    return (
+      <Link to={to} title={title} className={styles.btnAbout}>
+        {title}
+      </Link>
+    )
+  }
+
   return (
-    <Link to={to} title={title} className={styles.btnAbout}>
+    <button className={styles.btnAbout} type={type}>
       {title}
-    </Link>
+    </button>
   )
 }
 

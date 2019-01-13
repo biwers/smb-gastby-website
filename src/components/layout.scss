@@ -11,20 +11,71 @@ body {
 body {
   margin: 0;
 }
-
-.service-desc {
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
   position: relative;
   z-index: 4;
-  background-color: #fafafa;
-  margin-top: -4rem;
-  margin-bottom: 2rem;
+  @media screen and (max-width: 572px) {
+    flex-wrap: wrap-reverse;
+  }
+}
+.service-list {
+  flex: 0 1 200px;
+  padding: 3rem 1rem;
+}
+.service-list__title {
+  margin-bottom: 0.5rem;
+}
+.nav-services a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  &:hover {
+    text-decoration: underline;
+  }
+  &[aria-current='page'] {
+    font-weight: 500;
+    color: #222;
+  }
+}
+.service-desc {
+  background-color: #fff;
+  flex: 1 0 70%;
   border-radius: 5px;
   padding: 1.5rem;
+  position: relative;
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    width: 20px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    filter: blur(5px);
+  }
+  &:before {
+    left: 0;
+    transform: rotate(-5deg);
+  }
+
+  &:after {
+    right: 0;
+    transform: rotate(5deg);
+  }
+
   @media screen and (min-width: 479px) {
-    padding: 4rem;
+    padding: 3rem;
   }
 
   @media screen and (min-width: 769px) {
-    padding: 4rem 8rem;
+    padding: 3rem 6rem;
+    margin-top: -4rem;
   }
 }

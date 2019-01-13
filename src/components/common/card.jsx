@@ -8,9 +8,7 @@ export default ({ title, img, body, to }) => (
       <div className={styles.cardHeaderTitle}>
         <h3>{title}</h3>
       </div>
-      <div className={styles.cardImage}>
-        <img src={img} alt={title} />
-      </div>
+      <div className={styles.cardImage}>{img}</div>
     </div>
     <div className={styles.cardBody}>{body}</div>
     <div className={styles.cardFooter}>

@@ -1,6 +1,6 @@
 import React from 'react'
 import ServiceLayout from '../../components/servicLayout'
-import constructionImage from '../../images/construction.png'
+import constructionImage from '../../images/construction.jpg'
 const SecondPage = () => (
   <ServiceLayout title="Construction" img={constructionImage}>
     <p>

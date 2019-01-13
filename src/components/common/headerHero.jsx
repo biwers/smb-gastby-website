@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../header.module.scss'
-import Button from './button'
+//import Button from './button'
 
 export default ({ children, title, img, isHome, isNotService }) => (
   <header

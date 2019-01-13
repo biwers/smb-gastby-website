@@ -1,14 +1,19 @@
 .services {
-  @media screen and (min-width: 478px) {
-    @supports (display: flex) {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: space-between;
-      > article {
-        flex: 1 1 50%;
-      }
+  padding-bottom: 1.5rem;
+  @media screen and (min-width: 489px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    > article {
+      flex: 0 1 50%;
+      padding: 8vh 4vw;
+    }
+  }
+  @media screen and (min-width: 769px) {
+    > article {
+      flex: 0 1 33.333%;
+      padding: 4vw;
     }
   }
 

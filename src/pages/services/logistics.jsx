@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import ServiceLayout from '../../components/servicLayout'
 import LogisticImage from '../../images/logistics.jpg'
 const SecondPage = () => (

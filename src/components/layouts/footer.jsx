@@ -8,7 +8,7 @@ export default () => (
     <Container>
       <div className={styles.flexGrid}>
         <div className={styles.col}>
-          <h2>About</h2>
+          <h4>About</h4>
           <p>
             SMB is a privately owned commercial service company based in
             Kurdistan, Iraq.
@@ -19,7 +19,7 @@ export default () => (
           </ul>
         </div>
         <div className={styles.col}>
-          <h2>Services</h2>
+          <h4>Services</h4>
           <ul className={styles.serviceList}>
             <li>
               <Link to="/services/construction">Construction</Link>
@@ -39,11 +39,11 @@ export default () => (
           </ul>
         </div>
         <div className={styles.col}>
-          <h2>Address</h2>
-
-          <p>Dohuk (Registered Office) SMB Group Building</p>
+          <h4>Address</h4>
           <address>
+            Dohuk (Registered Office) SMB Group Building <br />
             Erbil Office Villa 237 English Village, Erbil.
+            <br />
             <br />
             <p>
               Contact: <br />
@@ -53,15 +53,19 @@ export default () => (
               <br />
               +964 - 750 450 5555 (ENG,ARA)
               <br />
+              <br />
               Email: info@smbgroup-iq.com <br />
             </p>
           </address>
-          <div className="map">
+        </div>
+        <div className={styles.col}>
+          <div className={styles.map}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1609.9406929581253!2d43.969388375235006!3d36.19376645122574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDExJzM3LjYiTiA0M8KwNTgnMTIuNSJF!5e0!3m2!1sen!2siq!4v1539163911834"
               width="300"
               height="200"
               frameBorder="0"
+              title="Smb location on google map"
               style={{ border: 0 }}
             />
           </div>
