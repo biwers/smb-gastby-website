@@ -166,11 +166,12 @@ export default class ConstructionPage extends PureComponent {
               border: 1px solid #ccc;
               border-radius: 4px;
               outline: none;
-              box-shadow: inset 0 0 5px rgba(0,0,0,0.1)
+              box-shadow: inset 0 0 5px rgba(0,0,0,0.1),0 0 0 0 rgba(15, 112, 148, 0.3);
+              transition: all .2s linear;
             }
             .form-control:focus, .form-control:focus-within {
-              box-shadow: 0 0 0 3px rgba(15, 112, 148, 0.3)
-              
+              box-shadow: 0 0 0 4px rgba(15, 112, 148, 0.3);
+              border-color: rgba(15, 112, 148, .9);
             }
             .form-control::-webkit-input-placeholder {
               color: #777;
