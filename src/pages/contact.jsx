@@ -64,7 +64,7 @@ export default class ConstructionPage extends PureComponent {
           loading: true,
         },
         async () => {
-          let ps = await fetch('http://smbgroup-iq.com/mail.php', {
+          let ps = await fetch('/mail.php', {
             method: 'post',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: formBody,
