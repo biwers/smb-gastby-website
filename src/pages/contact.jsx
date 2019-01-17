@@ -346,6 +346,8 @@ export default class ConstructionPage extends PureComponent {
                   Dohuk (Registered Office) SMB Group Building <br />
                   Erbil Office Villa 237 English Village, Erbil.
                   <br />
+                  St. 601 side St. 4 house #9 Al Amerat, Al Mansour, Baghdad
+                  <br />
                   <br />
                   <p>
                     Contact: <br />
