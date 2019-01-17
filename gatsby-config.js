@@ -1,7 +1,6 @@
 module.exports = {
   siteMetadata: {
     title: 'SMB Group Iraq',
-    titleTemplate: '%s · SMB Group Iraq',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
