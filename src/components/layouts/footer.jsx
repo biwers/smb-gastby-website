@@ -10,15 +10,14 @@ export default () => (
         <div className={styles.col}>
           <h4>About</h4>
           <p>
-            SMB is a privately owned commercial service company based in
-            Kurdistan, Iraq.
+            SMB is a privately owned commercial service company based in Iraq.
           </p>
-          <ul className={styles.socialMediaIconList}>
+          {/* <ul className={styles.socialMediaIconList}>
             <li>fb</li>
             <li>insta</li>
-          </ul>
+          </ul> */}
         </div>
-        <div className={styles.col}>
+        <div className={styles.col3}>
           <h4>Services</h4>
           <ul className={styles.serviceList}>
             <li>
@@ -38,11 +37,13 @@ export default () => (
             </li>
           </ul>
         </div>
-        <div className={styles.col}>
+        <div className={styles.col2}>
           <h4>Address</h4>
           <address>
             Dohuk (Registered Office) SMB Group Building <br />
             Erbil Office Villa 237 English Village, Erbil.
+            <br />
+            St. 601 side St. 4 house #9 Al Amerat, Al Mansour, Baghdad
             <br />
             <br />
             <p>
