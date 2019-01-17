@@ -3,6 +3,7 @@ import ServiceLayout from '../components/servicLayout'
 import Helmet from 'react-helmet'
 import Button from '../components/common/button'
 import Loader from '../components/common/loader'
+
 export default class ConstructionPage extends PureComponent {
   constructor() {
     super()
@@ -12,6 +13,7 @@ export default class ConstructionPage extends PureComponent {
     this.state = {
       loading: false,
       hasSuccess: false,
+      hasError: false,
       name: '',
       company: '',
       email: '',
@@ -41,24 +43,65 @@ export default class ConstructionPage extends PureComponent {
       }
     }
     if (hasErrors.length <= 0) {
+      const data = {
+        name: this.state.name,
+        email: this.state.email,
+        subject: this.state.subject,
+        message: this.state.message,
+        company: this.state.company,
+      }
+      var formBody = []
+      for (var property in data) {
+        var encodedKey = encodeURIComponent(property)
+        var encodedValue = encodeURIComponent(data[property])
+        formBody.push(encodedKey + '=' + encodedValue)
+      }
+      formBody = formBody.join('&')
+
       this.setState(
         {
           errors,
           loading: true,
         },
-        () => {
-          //fetch('http://smbgroup-iq.com', {})d
-          setTimeout(() => {
-            this.setState({
-              loading: false,
-              hasSuccess: true,
-              email: '',
-              name: '',
-              message: '',
-              company: '',
-              subject: '',
-            })
-          }, 3000)
+        async () => {
+          let ps = await fetch('http://smbgroup-iq.com/mail.php', {
+            method: 'post',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formBody,
+          })
+          let resp = await ps.json()
+          if (resp == 'success') {
+            this.setState(
+              {
+                loading: false,
+                hasSuccess: true,
+                hasError: false,
+                email: '',
+                name: '',
+                message: '',
+                company: '',
+                subject: '',
+              },
+              () => {
+                setTimeout(() => {
+                  this.setState({
+                    hasSuccess: false,
+                  })
+                }, 5000)
+              }
+            )
+          } else {
+            this.setState(
+              {
+                loading: false,
+                hasSuccess: false,
+                hasError: true,
+              },
+              () => {
+                this.err.focus()
+              }
+            )
+          }
         }
       )
     } else {
@@ -71,7 +114,7 @@ export default class ConstructionPage extends PureComponent {
     }
   }
   checkInputs() {
-    const { subject, email, name, message, loading } = this.state,
+    const { subject, email, name, message } = this.state,
       hasError = []
     const errors = {
       name: name.length > 0,
@@ -92,10 +135,10 @@ export default class ConstructionPage extends PureComponent {
       email,
       subject,
       message,
-      isLoaded,
       loading,
       errors,
       hasSuccess,
+      hasError,
     } = this.state
 
     return (
@@ -119,7 +162,7 @@ export default class ConstructionPage extends PureComponent {
             .form-control {
               display: block;
               width: 100%;
-              padding: .5rem 1.5rem;
+              padding: .5rem 1rem;
               border: 1px solid #ccc;
               border-radius: 4px;
               outline: none;
@@ -129,31 +172,51 @@ export default class ConstructionPage extends PureComponent {
               box-shadow: 0 0 0 3px rgba(15, 112, 148, 0.3)
               
             }
+            .form-control::-webkit-input-placeholder {
+              color: #777;
+              font-size: .8rem;
+            }
             .success-sent-msg {
               border: 1px dotted green;
               background: #2ecc71;
+            }
+            .error-sent-msg, .success-sent-msg{
               padding: 1rem;
               font-size: 1.5rem;
               font-weight: 700;
               color: #121212;
+             }
+            .error-sent-msg {
+              border: 1px dotted red;
+              background: #e74c3c;
+
             }
             .error-message {
               display: 'block';
               color: red;
               font-size: .8rem;
             }
-            .contact-page {
-              margin: -2rem -3rem;
-            }
+            
+            
             .address-col, .form-col {
-              float: left;
-              padding: 1rem 1.5rem;
+              padding: 1rem 0rem;
             }
-            .address-col {
-              width: 35%
-            }
-            .form-col {
-              width: 65%
+            @media screen and (min-width: 769px) {
+              .address-col, .form-col {
+                padding: 1rem 3rem;
+              }
+              .contact-page {
+                margin: -1rem -2rem;
+              }
+              .address-col, .form-col {
+                float: left;
+              }
+              .address-col {
+                width: 35%
+              }
+              .form-col {
+                width: 65%
+              }
             }
         `,
               },
@@ -164,10 +227,18 @@ export default class ConstructionPage extends PureComponent {
             <div className="contact-page">
               {hasSuccess && (
                 <div className="success-sent-msg">
-                  <p>Your message was sent successfully</p>
+                  <p>Your message was sent successfully!</p>
                 </div>
               )}
-
+              {hasError && (
+                <div
+                  className="error-sent-msg"
+                  tabIndex="-1"
+                  ref={err => (this.err = err)}
+                >
+                  <p>An Error occured, Please try again.</p>
+                </div>
+              )}
               <div className="form-col">
                 <form className="contact-form" onSubmit={this.handleSubmit}>
                   <div className="form-group">

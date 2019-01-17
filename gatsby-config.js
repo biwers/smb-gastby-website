@@ -33,7 +33,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'SMB Group Iraq',
-        short_name: 'SMB Group Iraq',
+        short_name: 'SMB Group',
         start_url: '/',
         background_color: '#fdfdfd',
         theme_color: '#0F7094',
