@@ -27,7 +27,9 @@ export default ({ children, title, img, isNotService, hideContactBtn }) => (
 
           <article className="service-desc">
             {children}
-            {!hideContactBtn && <Button title="Contact us" to="/contact" />}
+            {!hideContactBtn && (
+              <Button title="Contact us" to="/contact" type="a" />
+            )}
           </article>
         </div>
       </Container>

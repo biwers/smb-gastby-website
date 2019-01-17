@@ -71,6 +71,7 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            titleTemplate
           }
         }
       }
@@ -79,6 +80,7 @@ const Layout = ({ children }) => (
       <>
         <Helmet
           title={data.site.siteMetadata.title}
+          titleTemplate={data.site.siteMetadata.titleTemplate}
           meta={[
             { name: 'description', content: description },
             { name: 'keywords', content: keywords },
@@ -91,7 +93,7 @@ const Layout = ({ children }) => (
         <Navbar menuItems={menuItems} />
 
         {children}
-        <Footer/>
+        <Footer />
       </>
     )}
   />

@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'SMB Group Iraq',
+    titleTemplate: '%s · SMB Group Iraq',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -14,6 +15,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sass',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-typography`,
       options: {
