@@ -28,6 +28,11 @@ const IndexPage = props => (
               fontSize: '1.2rem',
             }}
           >
+           <div id="seated-55fdf2c0" data-artist-id="75c60439-038f-4d0c-8668-64cc24386b07" data-css-version="2">
+   </div>
+   <script src="https://widget.seated.com/app.js">
+   </script>
+
             Helping you do business throughout Iraq & GCC
           </p>
           <img src={ArroDownGraphicImage} alt="" />
