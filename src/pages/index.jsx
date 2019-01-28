@@ -40,7 +40,7 @@ const IndexPage = props => (
 
       <HighlightRow style={{ paddingBottom: '4rem' }}>
         <Container>
-          <Headline styledText="Our">Mission</Headline>
+          <Headline>Shows</Headline>
 
           <div id="seated-55fdf2c0" data-artist-id="75c60439-038f-4d0c-8668-64cc24386b07" data-css-version="2">
    </div>
