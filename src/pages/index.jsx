@@ -28,11 +28,6 @@ const IndexPage = props => (
               fontSize: '1.2rem',
             }}
           >
-           <div id="seated-55fdf2c0" data-artist-id="75c60439-038f-4d0c-8668-64cc24386b07" data-css-version="2">
-   </div>
-   <script src="https://widget.seated.com/app.js">
-   </script>
-
             Helping you do business throughout Iraq & GCC
           </p>
           <img src={ArroDownGraphicImage} alt="" />
@@ -47,15 +42,10 @@ const IndexPage = props => (
         <Container>
           <Headline styledText="Our">Mission</Headline>
 
-          <div style={{ maxWidth: '650px', margin: '0 auto' }}>
-            <p style={{ textAlign: 'center' }}>
-              {' '}
-              <strong>SMB</strong> services will ensure value for our
-              stakeholders by utilizing skilled management, innovative solutions
-              and effortless teamwork on our projects, that leave a lasting
-              impact in those regions in which operate.
-            </p>
-          </div>
+          <div id="seated-55fdf2c0" data-artist-id="75c60439-038f-4d0c-8668-64cc24386b07" data-css-version="2">
+   </div>
+   <script src="https://widget.seated.com/app.js">
+   </script>
         </Container>
       </HighlightRow>
     </main>
